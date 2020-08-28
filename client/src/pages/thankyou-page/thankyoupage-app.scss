@@ -1,0 +1,18 @@
+@import "../../scss/mixin.scss";
+.left-drop-zone {
+  margin-top: 1rem;
+}
+.custom-nav {
+  margin: 0 -8px;
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 8px;
+  }
+}
+
+.app-content-box {
+  .content-box__row {
+    display: block;
+  }
+}
