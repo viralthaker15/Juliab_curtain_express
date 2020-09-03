@@ -5,10 +5,6 @@ import {
   Page,
   Layout,
   Card,
-  Form,
-  FormLayout,
-  TextField,
-  Button,
   
 } from "@shopify/polaris";
 
@@ -36,24 +32,9 @@ class Dashboard extends React.Component {
         <Layout>
           <Layout.Section oneThird></Layout.Section>
           <Layout.Section oneThird>
-            <Card title="Welcome to rEngage">
+            <Card title="Juliab Curtain App">
               <Card.Section title="Login">
-                <Form >
-                  <FormLayout>
-                    <TextField
-                      label="Email"
-                      type="email"
-                      helpText={
-                        <span>
-                          We’ll use this email address to inform you on future changes to
-                          Polaris.
-            </span>
-                      }
-                    />
-
-                    <Button submit>Submit</Button>
-                  </FormLayout>
-                </Form>
+               <a href='https://b21fdb51b01d.ngrok.io/'>Click her to login</a>
               </Card.Section>
             </Card>
           </Layout.Section>

@@ -9,7 +9,6 @@ class ShopifyAPI {
   }
   createMeta() {
     let shopify = this.shopify;
-    console.log(shopify);
   return  shopify.metafield
   .create({
     key: 'Nirav',

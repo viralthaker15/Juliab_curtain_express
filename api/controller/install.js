@@ -2,18 +2,20 @@ const nonce = require('nonce')();
 const cookie = require('cookie');
 const querystring = require('querystring');
 const crypto = require('crypto');
+const apiKey =  process.env.SHOPIFY_API_KEY;
 const apiSecret = process.env.SHOPIFY_API_SECRET;
-const apiKey = process.env.SHOPIFY_API_KEY;
 const scopes = 'read_products';
 const request = require('request-promise');
-const forwardingAddress = "https://7b5fabdce3cb.ngrok.io"; // Replace this with your HTTPS Forwarding address
+const forwardingAddress = process.env.APP_URL;
+const jwt = require('jsonwebtoken');
 exports.getInstall = function (req, res) {
-    const shop = req.body.shop;
+    // const shop = req.query.shop;
+    const shop = "shah-nidhi.myshopify.com";
 /* Write dummy middleware with shop name with JuliaB */    
 
 /* End of dummy code */
-
-    if (!cn(shop)) {
+console.log(shop);
+    if (shop) {
         const state = nonce();
         const redirectUri = forwardingAddress + '/callback';
         console.log(redirectUri);
@@ -73,10 +75,10 @@ exports.getCallback = function (req, res) {
                 const shopRequestHeaders = {
                     'X-Shopify-Access-Token': accessToken,
                 };
-console.log(accessToken);
                 request.get(shopRequestUrl, { headers: shopRequestHeaders })
                     .then((shopResponse) => {
-                        res.end(shopResponse);
+                        var token = jwt.sign({ user: shop }, "test@123");
+                        res.redirect(`${process.env.CLIENT_URL}?token=${token}`);
                     })
                     .catch((error) => {
                         res.status(error.statusCode).send(error.error.error_description);

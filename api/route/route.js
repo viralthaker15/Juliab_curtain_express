@@ -1,21 +1,32 @@
 const express = require('express');
 const router = express.Router();
-
+const jwt = require('jsonwebtoken');
 const apiRoute = require('./apiRoute');
-const { route } = require('./apiRoute');
+const autRoute = require('./authRoute');
 
-//Without middleware (For shopify store)
-router.use('/api', apiRoute); 
+//Middleware
+function authToken(req, res, next) {
+  const token = req.headers['token'];
+  if (!token) return res.json({ error: "Token is empty" });
+  jwt.verify(token, "test@123", (err, user) => {
+    if (err) {
+      console.log(err);
+      res.json({ err: err });
+    }
+    req.user = user;
+    next();
+  })
+}
 
-//Ask for middleware 
-router.get('/', (req, res) => res.render('login'));
-router.post('/', (req, res) => require('../controller/install').getInstall(req,res));
+//Without Middlware
+router.use('/api', apiRoute);
 
+//Middleware process
+router.get('/callback', (req, res) => require('../controller/install').getCallback(req, res));
+router.get('/', (req, res) => require('../controller/install').getInstall(req, res));
 
-// After middleware Middleware  
-router.use('/layout',(req, res) =>  res.render('react',{layout: "react-layout"})); 
-router.get('/create-meta-field', (req, res) => require('../controller/shopify-api').createMetaFields(req,res));
+//With middleare
+router.use('/a',authToken, autRoute);
 
-router.get('/callback', (req, res) => require('../controller/install').getCallback(req,res));
 
 module.exports = router;
