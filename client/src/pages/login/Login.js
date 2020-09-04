@@ -1,22 +1,22 @@
 import React from 'react';
-import './dashboard.scss';
 import {
   Page,
   Layout,
   Card,
 
 } from "@shopify/polaris";
-class Dashboard extends React.Component {
-
+class Login extends React.Component {
+ 
   render() {
+  
     return (
       <Page fullWidth>
         <Layout>
           <Layout.Section oneThird></Layout.Section>
           <Layout.Section oneThird>
             <Card title="Juliab Curtain App">
-              <Card.Section title="DASHBOARD">
-
+              <Card.Section title="Login">
+                <a href={process.env.REACT_APP_SERVER_DOMAIN}>Click her to login</a>
               </Card.Section>
             </Card>
           </Layout.Section>
@@ -27,4 +27,4 @@ class Dashboard extends React.Component {
 
   }
 }
-export default Dashboard;
+export default Login;
