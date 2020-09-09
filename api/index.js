@@ -4,12 +4,12 @@ const app = express();
 const jwt = require('jsonwebtoken');
 
 // JSON
-app.use(express.json());
+
 
 // Express body parser
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(express.json());
+app.use(express.urlencoded());
+
 
 // Header requests access
 app.use(function(req, res, next) {

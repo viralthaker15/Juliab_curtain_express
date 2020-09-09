@@ -23,7 +23,7 @@ class ShopifyAPI {
   );
 
   }
-  createProduct() {
+  createProduct(price) {
     let shopify = this.shopify;
     return shopify.product
       .create({
@@ -51,8 +51,10 @@ class ShopifyAPI {
 
 exports.createProduct = async (req, res) => {
   let shopify = new ShopifyAPI();
-  let createProduct = await shopify.createProduct();
-  res.json(createProduct);
+  // let createProduct = await shopify.createProduct();
+  let {width,height} = req.body;
+  let finalPrice = parseInt(width) * parseInt(height);
+  res.send(`${finalPrice}`);
 }
 exports.createMetaFields = async (req, res) => {
   let shopify = new ShopifyAPI();
