@@ -26,7 +26,6 @@ if (bTemplates.includes(window.location.pathname)) {
   blankTemplate = true;
 }
 // token blank template 
-debugger;
 let token = getToken();
 if (!token) {
   token = setToken();
