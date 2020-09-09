@@ -77,7 +77,7 @@ exports.getCallback = function (req, res) {
                 };
                 request.get(shopRequestUrl, { headers: shopRequestHeaders })
                     .then((shopResponse) => {
-                        var token = jwt.sign({ user: shop }, "test@123");
+                        var token = jwt.sign({ user: shop }, "test@123",{ expiresIn: '15m' });
                         res.redirect(`${process.env.CLIENT_URL}?token=${token}`);
                     })
                     .catch((error) => {

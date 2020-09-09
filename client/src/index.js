@@ -1,3 +1,4 @@
+
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -16,18 +17,25 @@ import { Provider } from "react-redux";
 /* Custom imports */
 import AppContainer from "./AppContainer";
 import App from "./App";
+import { getToken, setToken } from './components/helper';
 
-const bTemplates = ["/thank-you"];
+const bTemplates = [""];
 let blankTemplate = false;
 let no_sidebar = true;
 if (bTemplates.includes(window.location.pathname)) {
   blankTemplate = true;
 }
-if (window.location.pathname.includes("/template-editor")) {
-  no_sidebar = true;
+// token blank template 
+let token = getToken();
+if (!token) {
+  token = setToken();
+}
+if (!token) {
+  blankTemplate = true;
 }
 require("@shopify/polaris/styles.css");
 require("./scss/app.scss");
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
