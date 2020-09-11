@@ -17,7 +17,7 @@ import { Provider } from "react-redux";
 /* Custom imports */
 import AppContainer from "./AppContainer";
 import App from "./App";
-import { getToken, setToken } from './components/helper';
+import { getToken, setToken } from './components/Helper';
 
 const bTemplates = [""];
 let blankTemplate = false;
