@@ -7,7 +7,7 @@ import Login from './pages/login/Login';
 import Dashboard from "./pages/dashboard/Dashboard";
 
 /* Plugins */
-import { getToken } from './components/helper';
+import { getToken } from './components/Helper';
 
 
 class App extends React.Component {
