@@ -1,10 +1,10 @@
 import { all, call } from 'redux-saga/effects';
-
-/* Main App Saga */
 import {mainAppSaga} from './main-app/mainAppSaga'
-/* Thank you Saga */
+/* Shopify Saga */
+import { mainShopifySaga } from './shopify/shopifySaga';
 export function* rootSaga() {
   yield all([
+    call(mainShopifySaga),
     call(mainAppSaga)
   ])
 }
