@@ -7,7 +7,3 @@ export const hideToaster = () => ({
   type: userTypes.HIDE_TOASTER
 });
 
-export const shopInstallStart = shop =>({
-  type:userTypes.SHOP_INSTALL_START,
-  payload:shop
-})

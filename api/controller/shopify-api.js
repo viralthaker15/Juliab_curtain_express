@@ -1,5 +1,5 @@
-const Shopify = require("shopify-api-node");
-const settings = require("../settings");
+import Shopify from "shopify-api-node";
+import settings from "../settings";
 
 class ShopifyAPI {
   constructor() {

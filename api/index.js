@@ -1,14 +1,12 @@
 require('dotenv').config();
-const express = require('express');
+import express from 'express'
 const app = express();
-const jwt = require('jsonwebtoken');
 
 // JSON
 
 
 // Express body parser
 app.use(express.json());
-app.use(express.urlencoded());
 
 
 // Header requests access

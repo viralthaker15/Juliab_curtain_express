@@ -4,17 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
+    "start": "node start.js",
+    "dev": "nodemon -r esm index.js",
     "build": "webpack --mode development"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
     "express": "^4.16.4",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^1.19.0",
     "nonce": "^1.0.4",
     "npm": "^6.14.8",
