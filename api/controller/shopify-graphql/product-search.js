@@ -9,7 +9,7 @@ exports.searchProduct = (req, res) => {
     },
     body: JSON.stringify({
       query: `{
-          products( query: "${term}", first: 10) {
+          products( query: "${term}", first: 25) {
             pageInfo {
               hasNextPage
               hasPreviousPage
