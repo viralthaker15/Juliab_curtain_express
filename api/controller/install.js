@@ -7,10 +7,9 @@ const apiSecret = process.env.SHOPIFY_API_SECRET;
 const scopes = "read_products";
 const request = require("request-promise");
 //const forwardingAddress = process.env.APP_URL;
-//const forwardingAddress = "https://juliab-curtain-express.herokuapp.com";
-const forwardingAddress = "https://d378a5516bf2.ngrok.io";
+const forwardingAddress = "https://72e3e4d7863f.ngrok.io";
 const jwt = require("jsonwebtoken");
-const Port = process.env.PORT || 3000;
+
 exports.getInstall = function (req, res) {
 	// const shop = req.query.shop;
 	const shop = "shah-nidhi.myshopify.com";
@@ -51,8 +50,7 @@ exports.getInstall = function (req, res) {
 
 const createJWT = (res, shop) => {
 	var token = jwt.sign({ user: shop }, "test@123", { expiresIn: "15m" });
-	//res.send({ token, data: payload });
-	res.redirect(`${forwardingAddress}/?token=${token}`);
+	res.redirect(`https://juliab-curtain.herokuapp.com/?token=${token}`);
 };
 
 exports.getCallback = function (req, res) {

@@ -1,5 +1,6 @@
 require("dotenv").config();
-const express = require("express");
+//const express = require("express");
+import express from "express";
 const app = express();
 
 // JSON
@@ -20,6 +21,6 @@ app.use(function (req, res, next) {
 //Router
 app.use("/", require("./route/route"));
 app.use("/public", express.static("public"));
-app.listen(3000, () => {
-	console.log("App listening on port 3000!");
+app.listen(3001, () => {
+	console.log("App listening on port 3001!");
 });
